@@ -1,0 +1,281 @@
+# Blue Excellent Painting - Git Ignore File
+# Excludes files that shouldn't be tracked in version control
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Environment and configuration files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+config.php
+wp-config.php
+.htaccess.local
+database.ini
+
+# API keys and sensitive data
+api-keys.txt
+secrets.json
+credentials.json
+service-account.json
+private-key.pem
+*.key
+*.pem
+*.p12
+
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error_log
+php_errors.log
+access.log
+debug.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+.grunt
+lib-cov
+coverage/
+nyc_output/
+.cache
+.parcel-cache
+
+# Dependency directories
+node_modules/
+jspm_packages/
+bower_components/
+vendor/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Database files
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+*~
+
+# WordPress specific (if using WordPress)
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+wp-content/plugins/akismet/
+wp-sitemap*.xml
+wp-config-sample.php
+
+# Cache directories
+.cache/
+cache/
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Image optimization temporary files
+images/temp/
+images/cache/
+*.webp.tmp
+*.jpg.tmp
+*.png.tmp
+
+# Analytics and tracking files (contain sensitive data)
+google-analytics.json
+facebook-pixel.json
+tracking-codes.txt
+
+# Email templates and configs (may contain sensitive info)
+email-config.php
+smtp-settings.ini
+mail-templates/private/
+
+# Form processor files (may contain sensitive data)
+form-data/
+contact-submissions/
+quote-requests/
+*.csv
+submissions.json
+
+# SSL certificates and security files
+*.crt
+*.cert
+*.ca-bundle
+ssl/
+certificates/
+.well-known/
+
+# Performance and optimization
+.htaccess.speed
+pagespeed/
+minified/
+compressed/
+
+# Local development files
+local-config.php
+dev-settings.json
+test-data/
+sample-data/
+
+# Monitoring and analytics exports
+analytics-export/
+stats/
+reports/
+*.xlsx
+*.xls
+
+# Social media assets (large files)
+social-media/original/
+video-assets/raw/
+*.mov
+*.mp4
+*.avi
+*.mkv
+
+# Design files (large working files)
+design/working-files/
+*.psd
+*.ai
+*.sketch
+*.fig
+*.xd
+
+# Documentation drafts
+docs/drafts/
+documentation/private/
+notes/
+todo.txt
+readme-draft.md
+
+# Testing files
+test-results/
+screenshots/
+test-data.json
+mock-data/
+
+# Deployment scripts (may contain sensitive info)
+deploy.sh
+deployment-config.yml
+docker-compose.override.yml
+.docker/
+
+# CDN and external service configs
+cdn-config.json
+aws-config.json
+cloudflare-config.json
+
+# Local server configurations
+.php-version
+.ruby-version
+.python-version
+server-config/
+
+# Package manager files (keep package.json but ignore locks for flexibility)
+package-lock.json
+yarn.lock
+composer.lock
+
+# Sass cache
+.sass-cache/
+*.css.map
+*.scss.map
+
+# Less cache
+*.less.map
+
+# TypeScript
+*.tsbuildinfo
+
+# ESLint
+.eslintcache
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.test
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# SvelteKit build / generate output
+.svelte-kit
+
+# Local Netlify folder
+.netlify
+
+# Misc
+*.tgz
+*.tar.gz

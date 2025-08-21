@@ -1,0 +1,63 @@
+# Blue Excellent Painting - Robots.txt
+# Professional Painting Services in Minneapolis, MN
+# Updated: January 15, 2025
+
+User-agent: *
+Allow: /
+
+# Preferred search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block specific files and directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cache/
+Disallow: /logs/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /assets/temp/
+Disallow: /backup/
+Disallow: /.htaccess
+Disallow: /.env
+Disallow: /error_log
+Disallow: /php_errors.log
+
+# Block common WordPress/CMS paths (if applicable)
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /wp-content/uploads/wpcf7_uploads/
+
+# Block search and filter URLs to prevent duplicate content
+Disallow: /*?s=
+Disallow: /*?search=
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?page=
+Disallow: /*&
+Disallow: /*?*&
+
+# Block internal API endpoints
+Disallow: /api/
+Disallow: /ajax/
+Disallow: /internal/
+
+# Block development and testing files
+Disallow: /test/
+Disallow: /dev/
+Disallow: /staging/
+Disallow: /*.sql
+Disallow: /*.bak
+Disallow

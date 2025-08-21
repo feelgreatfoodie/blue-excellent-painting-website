@@ -2521,3 +2521,386 @@ html {
 .testimonial-card blockquote {
   color: #495057 !important;
 }
+
+/* Project showcase cards (for single before/after images) */
+.project-showcase-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.project-showcase-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.gallery-image-full {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-showcase-card:hover .gallery-image-full {
+  transform: scale(1.05);
+}
+
+/* Project overlay and badge */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(59, 130, 246, 0.6));
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-showcase-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-badge {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1f2937;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.project-showcase-card:hover .project-badge {
+  transform: translateY(0);
+}
+
+/* Keep existing before-after-card styles for exterior */
+.before-after-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.before-after-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.before-after-container {
+  position: relative;
+  height: 300px;
+  display: flex;
+  overflow: hidden;
+}
+
+.before-image,
+.after-image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.before-image img,
+.after-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.before-after-card:hover .before-image img,
+.before-after-card:hover .after-image img {
+  transform: scale(1.05);
+}
+
+.image-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  z-index: 10;
+}
+
+.before-label {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+}
+
+.after-label {
+  background: rgba(34, 197, 94, 0.9);
+  color: white;
+}
+
+/* Project details styling */
+.project-details {
+  padding: 25px;
+}
+
+.project-details h4 {
+  color: #1f2937;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.project-details p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+/* Project tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  color: #1e40af;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid #bfdbfe;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .project-image-container,
+  .before-after-container {
+    height: 250px;
+  }
+  
+  .project-details {
+    padding: 20px;
+  }
+  
+  .project-details h4 {
+    font-size: 1.1rem;
+  }
+  
+  .project-details p {
+    font-size: 0.9rem;
+  }
+  
+  .tag {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+}
+
+/* Mobile Hero Section Fixes */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 80px 0 40px; /* Account for navbar */
+  }
+  
+  .hero-content {
+    padding: 20px 0;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 20px !important;
+    padding: 0 10px;
+  }
+  
+  /* Mobile Stats Card */
+  .hero-stats-mobile {
+    margin: 25px 15px !important;
+    padding: 20px 15px !important;
+    border-radius: 15px !important;
+  }
+  
+  .stat-row {
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center;
+  }
+  
+  .stat-compact {
+    min-width: auto !important;
+    width: 100%;
+    max-width: 200px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .stat-number {
+    font-size: 1.6rem !important;
+    margin-bottom: 5px;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem !important;
+    line-height: 1.2;
+  }
+  
+  .stat-separator {
+    display: none !important;
+  }
+  
+  .stat-tagline {
+    font-size: 0.85rem !important;
+    margin-top: 15px !important;
+    padding-top: 15px !important;
+    line-height: 1.3;
+    text-align: center;
+  }
+  
+  /* Mobile Buttons */
+  .hero-buttons {
+    margin-top: 30px !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    padding: 0 20px;
+  }
+  
+  .hero-buttons .btn {
+    width: 100% !important;
+    max-width: 280px;
+    margin: 0 auto !important;
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+  }
+  
+  .hero-stats-mobile {
+    margin: 20px 10px !important;
+    padding: 15px 10px !important;
+  }
+  
+  .stat-compact {
+    padding: 12px 15px;
+  }
+  
+  .stat-number {
+    font-size: 1.4rem !important;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem !important;
+  }
+  
+  .stat-tagline {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Fix navbar on mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem !important;
+  }
+  
+  .navbar-nav {
+    padding-top: 1rem;
+  }
+  
+  .nav-link {
+    padding: 0.75rem 0 !important;
+    text-align: center;
+  }
+}
+
+/* Fix promotion banner on mobile */
+@media (max-width: 768px) {
+  .promotion-section {
+    padding: 15px 0 !important;
+  }
+  
+  .promotion-content {
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center;
+    font-size: 0.9rem !important;
+  }
+  
+  .promotion-content .btn {
+    font-size: 0.85rem !important;
+    padding: 6px 12px !important;
+  }
+}
+
+/* Ensure content doesn't get cut off */
+.hero-section .container {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+/* Add this CSS for the hero image */
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide error notifications */
+.notification-toast.alert-error {
+  display: none !important;
+}
+
+/* Or hide all notifications temporarily */
+.notification-toast {
+  display: none !important;
+}

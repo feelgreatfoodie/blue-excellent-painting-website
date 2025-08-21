@@ -15,7 +15,7 @@
     initializeModalHandlers();
     initializeFormHandlers();
     initializeParallaxEffect();
-    initializeTypingEffect();
+    // initializeTypingEffect();
     initializeIntersectionObserver();
     initializeLazyLoading();
     initializeTooltips();
@@ -983,22 +983,22 @@
    */
   function initializeErrorHandling() {
     // Global error handler
-    window.addEventListener("error", function (e) {
-      console.error("JavaScript Error:", e.error);
+    // window.addEventListener("error", function (e) {
+    //   console.error("JavaScript Error:", e.error);
       
-      trackEvent("javascript_error", {
-        message: e.message,
-        filename: e.filename,
-        lineno: e.lineno,
-        colno: e.colno,
-        stack: e.error?.stack?.substring(0, 500), // Limit stack trace size
-      });
+    //   trackEvent("javascript_error", {
+    //     message: e.message,
+    //     filename: e.filename,
+    //     lineno: e.lineno,
+    //     colno: e.colno,
+    //     stack: e.error?.stack?.substring(0, 500), // Limit stack trace size
+    //   });
       
-      // Show user-friendly error for critical failures
-      if (e.message.includes("Critical") || e.filename.includes("main.js")) {
-        showNotification("Something went wrong. Please refresh the page.", "error");
-      }
-    });
+    //   // Show user-friendly error for critical failures
+    //   if (e.message.includes("Critical") || e.filename.includes("main.js")) {
+    //     showNotification("Something went wrong. Please refresh the page.", "error");
+    //   }
+    // });
 
     // Unhandled promise rejection handler
     window.addEventListener("unhandledrejection", function (e) {
@@ -1105,43 +1105,45 @@
     }
   }
 
-  /**
-   * Initialize quote request tracking
-   */
-  function initializeQuoteTracking() {
-    // Track quote button clicks
-    const quoteButtons = document.querySelectorAll('a[href="#contact"], .btn:contains("Quote")');
-    quoteButtons.forEach(button => {
-      button.addEventListener("click", function() {
-        trackEvent("quote_button_click", {
-          button_text: this.textContent.trim(),
-          location: getButtonLocation(this)
-        });
+/**
+ * Initialize quote request tracking
+ */
+function initializeQuoteTracking() {
+  // FIX: Replace invalid selector
+  const quoteButtons = document.querySelectorAll('a[href="#contact"], .btn[href="#contact"]');
+  // REMOVE: .btn:contains("Quote") - this is not valid CSS
+  
+  quoteButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      trackEvent("quote_button_click", {
+        button_text: this.textContent.trim(),
+        location: getButtonLocation(this)
       });
     });
+  });
 
-    // Track phone number clicks
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    phoneLinks.forEach(link => {
-      link.addEventListener("click", function() {
-        trackEvent("phone_click", {
-          phone_number: this.href.replace("tel:", ""),
-          location: getButtonLocation(this)
-        });
+  // Track phone number clicks
+  const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+  phoneLinks.forEach(link => {
+    link.addEventListener("click", function() {
+      trackEvent("phone_click", {
+        phone_number: this.href.replace("tel:", ""),
+        location: getButtonLocation(this)
       });
     });
+  });
 
-    // Track email clicks
-    const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
-    emailLinks.forEach(link => {
-      link.addEventListener("click", function() {
-        trackEvent("email_click", {
-          email: this.href.replace("mailto:", ""),
-          location: getButtonLocation(this)
-        });
+  // Track email clicks
+  const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+  emailLinks.forEach(link => {
+    link.addEventListener("click", function() {
+      trackEvent("email_click", {
+        email: this.href.replace("mailto:", ""),
+        location: getButtonLocation(this)
       });
     });
-  }
+  });
+}
 
   /**
    * Get button location context
@@ -1404,23 +1406,59 @@
   });
 
   // Service Worker registration for PWA capabilities
-  if ("serviceWorker" in navigator && "PushManager" in window) {
-    window.addEventListener("load", function() {
-      navigator.serviceWorker
-        .register("/sw.js")
-        .then(function(registration) {
-          console.log("ServiceWorker registration successful");
-          trackEvent("service_worker_registered", {
-            scope: registration.scope
-          });
-        })
-        .catch(function(err) {
-          console.log("ServiceWorker registration failed", err);
-          trackEvent("service_worker_error", {
-            error: err.toString()
-          });
-        });
+  // if ("serviceWorker" in navigator && "PushManager" in window) {
+  //   window.addEventListener("load", function() {
+  //     navigator.serviceWorker
+  //       .register("/sw.js")
+  //       .then(function(registration) {
+  //         console.log("ServiceWorker registration successful");
+  //         trackEvent("service_worker_registered", {
+  //           scope: registration.scope
+  //         });
+  //       })
+  //       .catch(function(err) {
+  //         console.log("ServiceWorker registration failed", err);
+  //         trackEvent("service_worker_error", {
+  //           error: err.toString()
+  //         });
+  //       });
+  //   });
+  // }
+
+  /**
+   * Initialize typing effect for hero text
+   */
+  function initializeTypingEffect() {
+    const typingElements = document.querySelectorAll('[data-typing]');
+    
+    if (typingElements.length === 0) return;
+    
+    typingElements.forEach(element => {
+      startTypingAnimation(element);
     });
+  }
+
+  function startTypingAnimation(element) {
+    const text = element.textContent;
+    const speed = parseInt(element.dataset.speed) || 100;
+    
+    element.textContent = "";
+    element.style.borderRight = "3px solid var(--accent-color)";
+    element.style.minHeight = "1.2em";
+
+    let i = 0;
+    const timer = setInterval(function () {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(timer);
+        // Remove cursor after typing is complete
+        setTimeout(() => {
+          element.style.borderRight = "none";
+        }, 1000);
+      }
+    }, speed);
   }
 
   // Expose utility functions globally
@@ -1435,7 +1473,7 @@
   };
 
   // Initialize critical functions immediately
-  initializeErrorHandling();
+  // initializeErrorHandling();
 
 })();
 

@@ -157,28 +157,29 @@
     });
   }
 
-  /**
-   * Initialize animated counters
-   */
-  function initializeCounters() {
-    const counters = document.querySelectorAll('[id$="-counter"], .stat-number, .counter');
+/**
+ * Initialize animated counters
+ */
+    function initializeCounters() {
+    // CHANGE THIS LINE - exclude elements with "no-animation" class
+    const counters = document.querySelectorAll('[id$="-counter"], .stat-number:not(.no-animation), .counter');
     
     const counterObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
+        entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
         }
-      });
+        });
     }, {
-      threshold: 0.5,
-      rootMargin: "0px 0px -10% 0px"
+        threshold: 0.5,
+        rootMargin: "0px 0px -10% 0px"
     });
 
     counters.forEach(function (counter) {
-      counterObserver.observe(counter);
+        counterObserver.observe(counter);
     });
-  }
+    }
 
   /**
    * Animate counter from 0 to target value
